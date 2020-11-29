@@ -82,7 +82,7 @@ public class SimpleBrowserTest {
 
         // Click Send
         driver.findElement(By.id("submitMessage")).submit();
-        webDriverWait.until(ExpectedConditions.visibilityOf(driver.findElement(By.className("[class*='alert-success']"))));
+        webDriverWait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("[class*='alert-success']"))));
 
         // Validate Alert success
         final WebElement  alert= driver.findElement(By.className("alert alert-success"));
