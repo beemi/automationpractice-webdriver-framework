@@ -1,5 +1,7 @@
 package com.jaitech.ltd;
 
+import java.time.Duration;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Assert;
@@ -18,7 +20,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class SimpleBrowserTest {
 
     private WebDriver driver;
-    private WebDriverWait webDriverWait;
 
     private final String HOST = "http://automationpractice.com/index.php";
 
@@ -32,7 +33,6 @@ public class SimpleBrowserTest {
     public void setupTests() {
 
         driver = new ChromeDriver();
-        webDriverWait = new WebDriverWait(driver, 3000);
 
         driver.navigate().to(HOST);
         Assert.assertEquals("My Store", driver.getTitle());
@@ -82,10 +82,13 @@ public class SimpleBrowserTest {
 
         // Click Send
         driver.findElement(By.id("submitMessage")).submit();
-        webDriverWait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("[class*='alert-success']"))));
+
+        WebElement alert_success = new WebDriverWait(driver, Duration.ofSeconds(10).toSeconds())
+                .until(driver ->driver.findElement(By.xpath("//p[@class='alert alert-success']")));
+
 
         // Validate Alert success
-        final WebElement  alert= driver.findElement(By.className("alert alert-success"));
+        final WebElement  alert= driver.findElement(By.xpath("//p[@class='alert alert-success']"));
         Assert.assertEquals("Your message has been successfully sent to our team.",alert.getText());
     }
 
