@@ -1,5 +1,6 @@
 package com.jaitech.ltd;
 
+import com.jaitech.ltd.constants.Constants;
 import com.jaitech.ltd.pages.LandingPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
@@ -37,7 +38,7 @@ public class FooterPageObjectTest {
         LandingPage landingPage = new LandingPage(driver);
 
         Assert.assertTrue(landingPage.isFooterDisplayed());
-        Assert.assertTrue(landingPage.getStoreInformation().contains("support@seleniumframework.com"));
+        Assert.assertTrue(landingPage.getStoreInformation().contains(Constants.supportEmail));
     }
 
     @After
