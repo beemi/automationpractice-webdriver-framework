@@ -10,6 +10,16 @@ public class LandingPage {
     // block_contact_infos
     private final By footerBy = By.id("block_contact_infos");
 
+    // newsletter-input
+    private final By newsLetterBy = By.id("newsletter-input");
+
+    //submitNewsletter
+    private final By submitNewsletter = By.name("submitNewsletter");
+
+    // newsletter send notification
+    private final By alertSuccessBy = By.cssSelector("p[class='alert alert-success']");
+
+
     public LandingPage(final WebDriver driver) {
 
         this.driver = driver;
@@ -17,6 +27,7 @@ public class LandingPage {
 
     /**
      * Check footer has displayed.
+     *
      * @return true if footer has displayed.
      */
     public boolean isFooterDisplayed() {
@@ -33,5 +44,37 @@ public class LandingPage {
 
         return driver.findElement(footerBy).getText();
     }
+
+    /**
+     * Enter newletter email address and submit
+     *
+     * @param email - user email address
+     */
+    public void enterNewsLetter(final String email) {
+
+        driver.findElement(newsLetterBy).sendKeys(email);
+        driver.findElement(submitNewsletter).click();
+    }
+
+    /**
+     * Check the alert has been displayed.
+     *
+     * @return - true if alert has been displayed.
+     */
+    public boolean hasAlertDisplayed() {
+
+        return driver.findElement(alertSuccessBy).isDisplayed();
+    }
+
+    /**
+     * Get the alert text from notification.
+     *
+     * @return - alert text.
+     */
+    public String getAlertText() {
+
+        return driver.findElement(alertSuccessBy).getText();
+    }
+
 
 }
