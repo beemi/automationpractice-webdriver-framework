@@ -40,7 +40,7 @@ public class NewsLetterTest {
         landingPage.enterNewsLetter("testtestq21@test.com");
         Thread.sleep(1000);
 
-        //Assert.assertTrue(landingPage.hasAlertDisplayed());
+        Assert.assertTrue(landingPage.hasAlertDisplayed());
         Assert.assertTrue(landingPage.getAlertText().contains("Newsletter : You have successfully subscribed to this newsletter."));
     }
 

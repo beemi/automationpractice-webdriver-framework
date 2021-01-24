@@ -17,7 +17,7 @@ public class LandingPage {
     private final By submitNewsletter = By.name("submitNewsletter");
 
     // newsletter send notification
-    private final By alertSuccessBy = By.cssSelector("p[class='alert alert-success']");
+    private final By alertSuccessBy = By.cssSelector("p[class*='alert-success']");
 
 
     public LandingPage(final WebDriver driver) {
