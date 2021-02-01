@@ -5,3 +5,6 @@ This Repository contains Selenium webdriver UI tests against [http://automationp
 ## Run tests locally
 
 ```./gradlew build test```
+
+### Contacts
+[beemi.raja@gmail.com](beemi.raja@gmail.com)
